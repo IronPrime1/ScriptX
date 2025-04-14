@@ -30,7 +30,7 @@ serve(async (req) => {
 
     // Fetch the transcript using RapidAPI
     try {
-      const rapidApiKey = Deno.env.get('RAPID_API_KEY') || '98826f73e7msh709657146921ebap1a6058jsn91e7d2b70360';
+      const rapidApiKey = Deno.env.get('RAPID_API_KEY');
       
       const transcriptUrl = `https://youtube-transcript3.p.rapidapi.com/api/transcript?videoId=${videoId[1]}`;
       const options = {

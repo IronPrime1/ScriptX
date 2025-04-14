@@ -90,9 +90,9 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-accent to-background">
-      <div className="container max-w-5xl mx-auto py-12 px-4 sm:px-6">
+      <div className="container max-w-5xl mx-auto py-12 px-6 sm:px-6">
         <header className="text-center mb-12">
-          <h1 className="text-4xl font-bold text-primary mb-2">YT Script Styler</h1>
+          <h1 className="text-4xl font-bold text-primary mb-2">ScriptX</h1>
           <p className="text-lg text-muted-foreground">
             Transform viral YouTube content into your personal script style
           </p>
@@ -102,7 +102,7 @@ const Index = () => {
           {/* Input Form */}
           <div className={`space-y-8 ${generatedScript ? 'md:col-span-6' : 'md:col-span-8 md:col-start-3'}`}>
             <Card className="border border-border shadow-md">
-              <CardContent className="p-6 space-y-6">
+              <CardContent className="p-6 space-y-6 pb-8">
                 <YouTubeUrlInput 
                   value={youtubeUrl} 
                   onChange={setYoutubeUrl} 
