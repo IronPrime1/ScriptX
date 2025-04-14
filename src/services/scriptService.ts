@@ -26,17 +26,27 @@ export const generateScript = async (
       })
     });
 
+    // Check if response is ok
     if (!response.ok) {
-      throw new Error('Script generation failed');
+      const errorText = await response.text();
+      console.error('Edge function error response:', errorText);
+      throw new Error(`Script generation failed: ${response.status} ${response.statusText}`);
     }
 
-    const data = await response.json();
-    
-    if (data.error) {
-      throw new Error(data.error);
-    }
+    // Parse the JSON response
+    try {
+      const data = await response.json();
+      
+      if (data.error) {
+        console.error('Script generation error from function:', data.error);
+        throw new Error(data.error);
+      }
 
-    return data.script;
+      return data.script;
+    } catch (parseError) {
+      console.error('Failed to parse response as JSON:', parseError);
+      throw new Error('Invalid response from server');
+    }
   } catch (error) {
     console.error('Error generating script:', error);
     throw error;
