@@ -184,7 +184,7 @@ const Index = () => {
         
         {/* Footer */}
         <footer className="mt-16 text-center text-sm text-muted-foreground">
-          <p>YT Script Styler — Transform content while maintaining your authentic voice</p>
+          <p>ScriptX — Transform content while maintaining your authentic voice</p>
         </footer>
       </div>
       <Toaster />
