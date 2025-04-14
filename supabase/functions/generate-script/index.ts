@@ -28,23 +28,36 @@ serve(async (req) => {
       throw new Error('Invalid YouTube URL');
     }
 
-    // Fetch the transcript from your Flask server
+    // Fetch the transcript using RapidAPI
     try {
-      const transcriptResponse = await fetch(`https://youtube-api-phi-nine.vercel.app/get_transcript?video_id=${videoId[1]}`);
+      const rapidApiKey = Deno.env.get('RAPID_API_KEY') || '98826f73e7msh709657146921ebap1a6058jsn91e7d2b70360';
+      
+      const transcriptUrl = `https://youtube-transcript3.p.rapidapi.com/api/transcript?videoId=${videoId[1]}`;
+      const options = {
+        method: 'GET',
+        headers: {
+          'x-rapidapi-key': rapidApiKey,
+          'x-rapidapi-host': 'youtube-transcript3.p.rapidapi.com'
+        }
+      };
+
+      console.log(`Fetching transcript for video ID: ${videoId[1]}`);
+      const transcriptResponse = await fetch(transcriptUrl, options);
       
       if (!transcriptResponse.ok) {
         const errorText = await transcriptResponse.text();
-        console.error(`Transcript API error (${transcriptResponse.status}):`, errorText);
+        console.error(`RapidAPI error (${transcriptResponse.status}):`, errorText);
         throw new Error(`Error fetching transcript: ${transcriptResponse.status} ${transcriptResponse.statusText}`);
       }
       
       const transcriptData = await transcriptResponse.json();
+      
+      if (!transcriptData || !transcriptData.transcript) {
+        throw new Error('No transcript data available for this video');
+      }
+      
       const transcript = transcriptData.transcript;
       
-      if (!transcript || typeof transcript !== 'string') {
-        throw new Error('Transcript is missing or invalid');
-      }
-
       // Create the prompt for script generation
       const prompt = userScript 
         ? `You are a YouTube scriptwriting assistant. This is the transcript of a viral YouTube video: ${transcript} This is a previous script from the user: ${userScript} Rewrite the viral video's transcript in the same style, tone, and structure as the user's script. Keep it engaging and aligned with the user's voice.` 

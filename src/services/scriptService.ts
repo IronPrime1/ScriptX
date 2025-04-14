@@ -12,6 +12,8 @@ export const generateScript = async (
   style: string = "default"
 ): Promise<string> => {
   try {
+    console.log('Sending request to generate script for:', videoUrl);
+    
     const response = await fetch('https://yozqkhxpxodolcrbtbtg.supabase.co/functions/v1/generate-script', {
       method: 'POST',
       headers: {
