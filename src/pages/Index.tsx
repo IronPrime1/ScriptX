@@ -6,9 +6,10 @@ import UserScriptInput from '@/components/UserScriptInput';
 import StyleSelector from '@/components/StyleSelector';
 import GenerateButton from '@/components/GenerateButton';
 import ScriptOutput from '@/components/ScriptOutput';
-import { validateYouTubeUrl, fetchTranscript, extractVideoId } from '@/services/youtubeService';
+import { validateYouTubeUrl } from '@/services/youtubeService';
 import { generateScript } from '@/services/scriptService';
 import { Toaster } from '@/components/ui/toaster';
+import { useToast } from '@/components/ui/use-toast';
 
 const Index = () => {
   // Form state
@@ -24,6 +25,8 @@ const Index = () => {
   // Output state
   const [generatedScript, setGeneratedScript] = useState<string | null>(null);
   
+  const { toast } = useToast();
+  
   const handleGenerate = async () => {
     // Validate YouTube URL
     const error = validateYouTubeUrl(youtubeUrl);
@@ -33,18 +36,25 @@ const Index = () => {
     
     try {
       setIsLoading(true);
-      const videoId = extractVideoId(youtubeUrl)!;
       
-      // Fetch transcript
-      const transcript = await fetchTranscript(videoId);
-      
-      // Generate script
-      const script = await generateScript(transcript, userScript, style);
+      // Generate script directly using the video URL
+      const script = await generateScript(youtubeUrl, userScript, style);
       
       setGeneratedScript(script);
+      toast({
+        title: "Success!",
+        description: "Your script has been generated",
+        duration: 3000,
+      });
     } catch (error) {
       console.error('Error generating script:', error);
       setUrlError('Failed to generate script. Please try again.');
+      toast({
+        title: "Error",
+        description: "Failed to generate script. Please try again.",
+        variant: "destructive",
+        duration: 5000,
+      });
     } finally {
       setIsLoading(false);
     }
@@ -55,17 +65,24 @@ const Index = () => {
     
     try {
       setIsRegenerating(true);
-      const videoId = extractVideoId(youtubeUrl)!;
       
-      // Fetch transcript
-      const transcript = await fetchTranscript(videoId);
-      
-      // Generate script
-      const script = await generateScript(transcript, userScript, style);
+      // Generate script again with the same parameters
+      const script = await generateScript(youtubeUrl, userScript, style);
       
       setGeneratedScript(script);
+      toast({
+        title: "Success!",
+        description: "Your script has been regenerated",
+        duration: 3000,
+      });
     } catch (error) {
       console.error('Error regenerating script:', error);
+      toast({
+        title: "Error",
+        description: "Failed to regenerate script. Please try again.",
+        variant: "destructive",
+        duration: 5000,
+      });
     } finally {
       setIsRegenerating(false);
     }

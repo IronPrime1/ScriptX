@@ -29,19 +29,3 @@ export const validateYouTubeUrl = (url: string): string | null => {
   
   return null;
 };
-
-/**
- * Mock function to fetch transcript - in a real app, this would call a server function
- * @param videoId The YouTube video ID
- * @returns Promise with mocked transcript
- */
-export const fetchTranscript = async (videoId: string): Promise<string> => {
-  // This is a placeholder. In a real implementation, this would call a backend API
-  // that would use a library like youtube-transcript-api to fetch the actual transcript.
-  console.log(`Fetching transcript for video ID: ${videoId}`);
-  
-  // For demo purposes, we'll simulate an API call with a delay
-  await new Promise(resolve => setTimeout(resolve, 1500));
-  
-  return "This is a mock transcript. In a real implementation, this would be the actual transcript from the YouTube video.";
-};
