@@ -12,7 +12,7 @@ export const generateScript = async (
   style: string = "default"
 ): Promise<string> => {
   try {
-    const response = await fetch('https://<YOUR-PROJECT-REF>.supabase.co/functions/v1/generate-script', {
+    const response = await fetch('https://yozqkhxpxodolcrbtbtg.supabase.co/functions/v1/generate-script', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

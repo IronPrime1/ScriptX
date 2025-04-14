@@ -56,7 +56,7 @@ Rewrite the script in a highly engaging, YouTube-friendly style for a ${style ||
     // Generate script using Groq
     const chatCompletion = await groq.chat.completions.create({
       messages: [{ role: 'user', content: prompt }],
-      model: 'llama3-8b-8192'
+      model: 'llama-3.3-70b-versatile'
     })
 
     // Extract the generated script
