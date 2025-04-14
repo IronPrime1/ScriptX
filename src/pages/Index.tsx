@@ -10,6 +10,7 @@ import { validateYouTubeUrl } from '@/services/youtubeService';
 import { generateScript } from '@/services/scriptService';
 import { Toaster } from '@/components/ui/toaster';
 import { useToast } from '@/components/ui/use-toast';
+import  HeaderSection  from '@/components/HeaderSection';
 
 const Index = () => {
   // Form state
@@ -91,14 +92,7 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-gradient-to-b from-accent to-background">
       <div className="container max-w-5xl mx-auto py-12 px-6 sm:px-6">
-        <header className="text-center mb-12">
-          <img src="/S.png" alt="Logo" className="h-16 mx-auto mb-4" />
-          <h1 className="text-4xl font-bold text-primary mb-2">ScriptX</h1>
-          <p className="text-lg text-muted-foreground">
-            Transform viral YouTube content into your personal script style
-          </p>
-        </header>
-        
+      <HeaderSection />
         <div className="grid gap-8 md:grid-cols-12">
           {/* Input Form */}
           <div className={`space-y-8 ${generatedScript ? 'md:col-span-6' : 'md:col-span-8 md:col-start-3'}`}>
