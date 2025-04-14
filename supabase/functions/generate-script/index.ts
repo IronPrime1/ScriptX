@@ -60,8 +60,18 @@ serve(async (req) => {
       
       // Create the prompt for script generation
       const prompt = userScript 
-        ? `You are a YouTube scriptwriting assistant. This is the transcript of a viral YouTube video: ${transcript} This is a previous script from the user: ${userScript} Rewrite the viral video's transcript in the same style, tone, and structure as the user's script. Keep it engaging and aligned with the user's voice.` 
-        : `You are a YouTube scriptwriting assistant. This is the transcript of a viral YouTube video: ${transcript} Rewrite the script in a highly engaging, YouTube-friendly style for a ${style || 'default'} tone. Make it suitable for an average creator to present. Feel free to add hooks, transitions, and expressive language.`;
+      ? `You are a world-class YouTube scriptwriting assistant. Below is the transcript of a viral video and a sample of the user's past scripting style. Your task is to *reconstruct* the viral video transcript to match the exact voice, rhythm, narrative flow, and storytelling flair of the user's script.
+
+      Your rewrite should not just mimic tone—it should feel like the user authored it. Integrate captivating hooks, emotional arcs, story-based persuasion, and retention-focused pacing. Maximize viewer interest by building curiosity, crafting satisfying "aha" moments, and layering in puzzle-piece storytelling logic. Your goal is to create an engaging, human-centered YouTube script that educates *and* entertains.
+
+      Here is the viral transcript: ${transcript}
+
+      Here is the user's previous script: ${userScript}`
+
+        : `You are a world-class YouTube scriptwriting assistant. Below is the transcript of a viral video. Your task is to transform this into a YouTube-native script that is emotionally engaging, visually expressive, and structured to maximize viewer retention.
+
+      Use story-first writing, compelling hooks (from ad copy to cliffhangers), and conversational transitions. If the original content is purely educational, reshape it into a story that subtly teaches one core idea. Prioritize viewer curiosity, satisfaction, and a sense of progress throughout. Your output should feel dynamic, authentic, and ready to film for a ${style || 'default'} tone.`;
+
 
       // Get the Groq API key from environment variables
       const groqApiKey = Deno.env.get('GROQ_API_KEY');
