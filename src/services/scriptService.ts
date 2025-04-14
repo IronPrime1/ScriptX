@@ -16,6 +16,8 @@ export const generateScript = async (
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
+        'apikey': import.meta.env.VITE_SUPABASE_ANON_KEY, // or your Supabase anon key
+        'Authorization': `Bearer ${import.meta.env.VITE_SUPABASE_ANON_KEY}`, // sometimes needed
       },
       body: JSON.stringify({
         videoUrl,
