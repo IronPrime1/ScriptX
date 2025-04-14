@@ -92,6 +92,7 @@ const Index = () => {
     <div className="min-h-screen bg-gradient-to-b from-accent to-background">
       <div className="container max-w-5xl mx-auto py-12 px-6 sm:px-6">
         <header className="text-center mb-12">
+          <img src="/S.png" alt="Logo" className="h-16 mx-auto mb-4" />
           <h1 className="text-4xl font-bold text-primary mb-2">ScriptX</h1>
           <p className="text-lg text-muted-foreground">
             Transform viral YouTube content into your personal script style
