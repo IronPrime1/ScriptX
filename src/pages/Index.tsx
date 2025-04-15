@@ -136,7 +136,7 @@ const Index = () => {
         </div>
 
         {/* How It Works Section */}
-        <div className="mt-16">
+        <div className="mt-12 sm:mt-16">
           <h2 className="text-2xl font-semibold text-center mb-6">How It Works</h2>
           <div className="grid gap-6 md:grid-cols-3">
             <Card className="border border-border shadow-sm">
