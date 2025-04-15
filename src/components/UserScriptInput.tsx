@@ -9,9 +9,9 @@ interface UserScriptInputProps {
 
 const UserScriptInput = ({ value, onChange }: UserScriptInputProps) => {
   return (
-    <div className="space-y-2">
-      <Label htmlFor="user-script" className="text-sm font-medium">
-        Your Previous Script (Optional)
+    <div className="space-y-2 font-inter font-light">
+      <Label htmlFor="user-script" className="text-sm font-medium font-inter">
+        Your Script (Optional)
       </Label>
       <Textarea
         id="user-script"
@@ -20,9 +20,6 @@ const UserScriptInput = ({ value, onChange }: UserScriptInputProps) => {
         onChange={(e) => onChange(e.target.value)}
         className="min-h-36 sm:min-h-36 focus:ring-2 focus:ring-primary"
       />
-      <p className="text-muted-foreground text-xs">
-        This helps the AI match your personal style and tone.
-      </p>
     </div>
   );
 };

@@ -40,12 +40,12 @@ const ScriptOutput = ({ script, onRegenerate, isRegenerating }: ScriptOutputProp
   return (
     <div className="space-y-2">
       <Card className="border border-border shadow-sm">
-        <div className="flex items-center justify-between p-4 border-b border-border font-bold">
+        <div className="flex items-center justify-between p-3 border-b border-border font-inter font-bold">
         <h1>Your Script</h1>
         </div>
         <CardContent className="p-4 pb-6">
           <textarea
-            className="w-full h-[370px] resize-none whitespace-pre-wrap font-normal text-sm leading-relaxed bg-transparent focus:outline-none"
+            className="w-full h-[448px] resize-none whitespace-pre-wrap font-normal text-sm leading-relaxed bg-transparent focus:outline-none"
             value={editableScript}
             onChange={(e) => setEditableScript(e.target.value)}
           />

@@ -11,10 +11,12 @@ import { generateScript } from '@/services/scriptService';
 import { Toaster } from '@/components/ui/toaster';
 import { useToast } from '@/components/ui/use-toast';
 import  HeaderSection  from '@/components/HeaderSection';
+import UserUrlInput from '@/components/UserUrlInput';
 
 const Index = () => {
   // Form state
   const [youtubeUrl, setYoutubeUrl] = useState('');
+  const [userUrl, setUserUrl] = useState('');
   const [userScript, setUserScript] = useState('');
   const [style, setStyle] = useState('default');
   const [urlError, setUrlError] = useState<string | null>(null);
@@ -39,7 +41,7 @@ const Index = () => {
       setIsLoading(true);
       
       // Generate script directly using the video URL
-      const script = await generateScript(youtubeUrl, userScript, style);
+      const script = await generateScript(youtubeUrl, userScript, userUrl, style);
       
       setGeneratedScript(script);
       toast({
@@ -96,31 +98,29 @@ const Index = () => {
         <div className="grid gap-8 md:grid-cols-12">
           {/* Input Form */}
           <div className={`space-y-8 ${generatedScript ? 'md:col-span-6' : 'md:col-span-8 md:col-start-3'}`}>
-            <Card className="border border-border shadow-md max-w-lg mx-auto">
-              <CardContent className="p-6 space-y-6 pb-8 max-w-lg">
-                <YouTubeUrlInput 
-                  value={youtubeUrl} 
-                  onChange={setYoutubeUrl} 
-                  error={urlError} 
-                />
-                
-                <UserScriptInput 
-                  value={userScript} 
-                  onChange={setUserScript} 
-                />
-                
-                <StyleSelector 
-                  value={style} 
-                  onChange={setStyle} 
-                />
-                
-                <GenerateButton 
-                  onClick={handleGenerate} 
-                  isLoading={isLoading} 
-                  disabled={!youtubeUrl.trim()}
-                />
-              </CardContent>
-            </Card>
+          <Card className="border border-border shadow-md w-full max-w-lg mx-auto">
+            <CardContent className="p-4 sm:p-4 space-y-4 pb-4 sm:pb-4">
+              <YouTubeUrlInput value={youtubeUrl} onChange={setYoutubeUrl} error={urlError} />
+              <div className="flex flex-col p-3 sm:p-3 mb-0 border rounded-md gap-2 border-gray-300 shadow-sm">
+                <UserScriptInput value={userScript} onChange={setUserScript} />
+                <div className="flex items-center justify-center w-full my-1">
+                  <div className="bg-gray-200 h-px flex-grow"></div>
+                  <p className="text-center text-sm sm:text-md font-medium px-2">Or</p>
+                  <div className="bg-gray-200 h-px flex-grow"></div>
+                </div>
+                <UserUrlInput value={userUrl} onChange={setUserUrl} error={urlError} />
+              </div>
+
+              <StyleSelector value={style} onChange={setStyle} />
+
+              <GenerateButton
+                onClick={handleGenerate}
+                isLoading={isLoading}
+                disabled={!youtubeUrl.trim()}
+                className="w-full"
+              />
+            </CardContent>
+          </Card>
           </div>
           
           {/* Output */}

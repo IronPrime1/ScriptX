@@ -24,9 +24,9 @@ const styleOptions = [
 
 const StyleSelector = ({ value, onChange }: StyleSelectorProps) => {
   return (
-    <div className="space-y-2">
-      <Label htmlFor="style" className="text-sm font-medium">
-        Tone/Style Preference
+    <div className="space-y-2 font-inter font-light">
+      <Label htmlFor="style" className="text-sm font-inter">
+       Style
       </Label>
       <Select value={value} onValueChange={onChange}>
         <SelectTrigger className="w-full focus:ring-2 focus:ring-primary">

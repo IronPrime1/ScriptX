@@ -3,12 +3,14 @@
  * Generate a styled script using the Supabase Edge Function
  * @param videoUrl The YouTube video URL
  * @param userScript The user's previous script (optional)
+ * @param userUrl The user's previous video URL (optional)
  * @param style The style/tone preference
  * @returns Promise with the generated script
  */
 export const generateScript = async (
   videoUrl: string,
   userScript: string = "",
+  userUrl: string = "",
   style: string = "default"
 ): Promise<string> => {
   try {
@@ -24,6 +26,7 @@ export const generateScript = async (
       body: JSON.stringify({
         videoUrl,
         userScript,
+        userUrl,
         style
       })
     });
