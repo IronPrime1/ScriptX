@@ -91,7 +91,7 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-accent to-background">
-      <div className="container max-w-5xl mx-auto py-12 px-6 sm:px-6">
+      <div className="container max-w-5xl mx-auto py-12 px-6 sm:px-6 pt-8">
       <HeaderSection />
         <div className="grid gap-8 md:grid-cols-12">
           {/* Input Form */}
@@ -180,6 +180,7 @@ const Index = () => {
         {/* Footer */}
         <footer className="mt-16 text-center text-sm text-muted-foreground">
           <p>ScriptX — Transform content while maintaining your authentic voice</p>
+          
         </footer>
       </div>
       <Toaster />
