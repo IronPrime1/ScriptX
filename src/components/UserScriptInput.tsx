@@ -18,7 +18,7 @@ const UserScriptInput = ({ value, onChange }: UserScriptInputProps) => {
         placeholder="Paste your previous video script to match your style..."
         value={value}
         onChange={(e) => onChange(e.target.value)}
-        className="min-h-40 focus:ring-2 focus:ring-primary"
+        className="min-h-36 sm:min-h-36 focus:ring-2 focus:ring-primary"
       />
       <p className="text-muted-foreground text-xs">
         This helps the AI match your personal style and tone.

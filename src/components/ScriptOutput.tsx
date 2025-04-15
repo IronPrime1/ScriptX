@@ -45,7 +45,7 @@ const ScriptOutput = ({ script, onRegenerate, isRegenerating }: ScriptOutputProp
         </div>
         <CardContent className="p-4 pb-6">
           <textarea
-            className="w-full h-96 resize-none whitespace-pre-wrap font-normal text-sm leading-relaxed bg-transparent focus:outline-none"
+            className="w-full h-[370px] resize-none whitespace-pre-wrap font-normal text-sm leading-relaxed bg-transparent focus:outline-none"
             value={editableScript}
             onChange={(e) => setEditableScript(e.target.value)}
           />

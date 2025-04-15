@@ -96,8 +96,8 @@ const Index = () => {
         <div className="grid gap-8 md:grid-cols-12">
           {/* Input Form */}
           <div className={`space-y-8 ${generatedScript ? 'md:col-span-6' : 'md:col-span-8 md:col-start-3'}`}>
-            <Card className="border border-border shadow-md">
-              <CardContent className="p-6 space-y-6 pb-8">
+            <Card className="border border-border shadow-md max-w-lg mx-auto">
+              <CardContent className="p-6 space-y-6 pb-8 max-w-lg">
                 <YouTubeUrlInput 
                   value={youtubeUrl} 
                   onChange={setYoutubeUrl} 
