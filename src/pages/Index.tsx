@@ -12,8 +12,11 @@ import { Toaster } from '@/components/ui/toaster';
 import { useToast } from '@/components/ui/use-toast';
 import  HeaderSection  from '@/components/HeaderSection';
 import UserUrlInput from '@/components/UserUrlInput';
+import { useAnalytics } from '@/hooks/useAnalytics';
 
 const Index = () => {
+
+  useAnalytics();
   // Form state
   const [youtubeUrl, setYoutubeUrl] = useState('');
   const [userUrl, setUserUrl] = useState('');
@@ -31,6 +34,12 @@ const Index = () => {
   const { toast } = useToast();
   
   const handleGenerate = async () => {
+
+    logEvent("form_submission", {
+      event_category: "engagement",
+      event_label: "script_generation_form",
+    });
+
     // Validate YouTube URL
     const error = validateYouTubeUrl(youtubeUrl);
     setUrlError(error);
@@ -49,6 +58,12 @@ const Index = () => {
         description: "Your script has been generated",
         duration: 3000,
       });
+      
+      logEvent("script_generated", {
+        event_category: "conversion",
+        event_label: "successful_script_generation",
+      });
+    };
     } catch (error) {
       console.error('Error generating script:', error);
       setUrlError('Failed to generate script. Please try again.');
