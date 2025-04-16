@@ -23,6 +23,7 @@ const Index = () => {
   const [userScript, setUserScript] = useState('');
   const [style, setStyle] = useState('default');
   const [urlError, setUrlError] = useState<string | null>(null);
+  const { logEvent } = useAnalytics();
   
   // Processing state
   const [isLoading, setIsLoading] = useState(false);
