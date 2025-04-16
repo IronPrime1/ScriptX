@@ -58,12 +58,11 @@ const Index = () => {
         description: "Your script has been generated",
         duration: 3000,
       });
-      
+
       logEvent("script_generated", {
         event_category: "conversion",
         event_label: "successful_script_generation",
       });
-    };
     } catch (error) {
       console.error('Error generating script:', error);
       setUrlError('Failed to generate script. Please try again.');
