@@ -13,10 +13,11 @@ import { useToast } from '@/components/ui/use-toast';
 import  HeaderSection  from '@/components/HeaderSection';
 import UserUrlInput from '@/components/UserUrlInput';
 import { useAnalytics } from '@/hooks/useAnalytics';
+import FeedbackForm from '@/components/Feedback';
+import Navbar from '@/components/Navbar';
 
 const Index = () => {
 
-  useAnalytics();
   // Form state
   const [youtubeUrl, setYoutubeUrl] = useState('');
   const [userUrl, setUserUrl] = useState('');
@@ -107,13 +108,14 @@ const Index = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-accent to-background">
-      <div className="container max-w-5xl mx-auto py-12 px-6 sm:px-6 pt-8">
+    <div className="min-h-screen bg-gradient-to-b from-accent to-background mt-12">
+      <Navbar />
+      <div className="container max-w-5xl mx-auto py-12 px-6 sm:px-6 pt-12 pb-4">
       <HeaderSection />
-        <div className="grid gap-8 md:grid-cols-12">
+        <div className="grid gap-8 md:grid-cols-12 max-w-5xl mx-auto">
           {/* Input Form */}
           <div className={`space-y-8 ${generatedScript ? 'md:col-span-6' : 'md:col-span-8 md:col-start-3'}`}>
-          <Card className="border border-border shadow-md w-full max-w-lg mx-auto">
+          <Card className="border border-border shadow-md w-full max-w-lg mx-auto" id="try-now">
             <CardContent className="p-4 sm:p-4 space-y-4 pb-4 sm:pb-4">
               <YouTubeUrlInput value={youtubeUrl} onChange={setYoutubeUrl} error={urlError} />
               <div className="flex flex-col p-3 sm:p-3 mb-0 border rounded-md gap-2 border-gray-300 shadow-sm">
@@ -151,7 +153,7 @@ const Index = () => {
         </div>
 
         {/* How It Works Section */}
-        <div className="mt-12 sm:mt-16">
+        <div className="mt-10 sm:mt-8 font-inter" id="how-it-works">
           <h2 className="text-2xl font-semibold text-center mb-6">How It Works</h2>
           <div className="grid gap-6 md:grid-cols-3">
             <Card className="border border-border shadow-sm">
@@ -173,7 +175,7 @@ const Index = () => {
                 </div>
                 <h3 className="font-semibold mb-2">Add Your Style</h3>
                 <p className="text-sm text-muted-foreground">
-                  Optionally paste your previous script and select a tone
+                  Optionally paste your previous script or previous video URL and select a tone
                 </p>
               </CardContent>
             </Card>
@@ -192,13 +194,14 @@ const Index = () => {
           </div>
         </div>
         
-        {/* Footer */}
-        <footer className="mt-16 text-center text-sm text-muted-foreground">
-          <p>ScriptX — Transform content while maintaining your authentic voice</p>
-          
-        </footer>
+        <div className="pt-10" id="feedback">
+        <FeedbackForm />
+        </div>
       </div>
       <Toaster />
+      <footer className="mt-4 text-center text-sm text-muted-foreground border-t py-4 border-gray-300">
+          <p>© 2025 ScriptX. All rights reserved.</p>
+      </footer>
     </div>
   );
 };
