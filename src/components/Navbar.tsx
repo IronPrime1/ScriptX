@@ -20,7 +20,7 @@ export default function Navbar() {
         {/* Logo and Brand Name */}
         <div className="flex items-center space-x-2">
           <div className="h-8 w-8 rounded-md flex items-center justify-center">
-            <img src="/S.png" alt="Logo" className="h-8 w-8 rounded-sm" />
+            <img src="/S.png" alt="Logo" className="h-8 w-8 rounded-md" />
           </div>
           <span className="text-lg font-semibold">ScriptX</span>
         </div>
