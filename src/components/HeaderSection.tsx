@@ -4,7 +4,7 @@ export default function HeaderSection() {
   return (
     <header className="flex flex-col items-center justify-center pb-6 px-4 space-y-3">
       <div className="relative">
-        <img src="/S.png" alt="ScriptX Logo" className="h-16 w-16 object-contain rounded-xl shadow-sm" />
+        <img src="/logo.png" alt="ScriptX Logo" className="h-16 w-16 object-contain rounded-xl shadow-sm" />
         <div className="absolute -bottom-2 -right-2">
           <Badge variant="secondary" className="text-xs font-medium">
             Beta
