@@ -1,4 +1,3 @@
-
 import { Button } from '@/components/ui/button';
 import { Loader2 } from 'lucide-react';
 
@@ -6,9 +5,10 @@ interface GenerateButtonProps {
   onClick: () => void;
   isLoading: boolean;
   disabled: boolean;
+  buttonName: string;
 }
 
-const GenerateButton = ({ onClick, isLoading, disabled }: GenerateButtonProps) => {
+const GenerateButton = ({ onClick, isLoading, disabled, buttonName }: GenerateButtonProps) => {
   return (
     <Button
       onClick={onClick}
@@ -22,7 +22,7 @@ const GenerateButton = ({ onClick, isLoading, disabled }: GenerateButtonProps) =
           Processing...
         </>
       ) : (
-        "Generate My Version"
+        buttonName
       )}
     </Button>
   );

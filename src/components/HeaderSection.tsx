@@ -6,17 +6,17 @@ export default function HeaderSection() {
       <div className="relative">
         <img src="/Logo1.png" alt="ScriptX Logo" className="h-16 w-16 object-contain rounded-xl shadow-sm" />
         <div className="absolute -bottom-2 -right-2">
-          <Badge variant="secondary" className="text-xs font-medium">
+          <Badge variant="secondary" className="text-xs font-medium font-inter">
             Beta
           </Badge>
         </div>
       </div>
 
-      <div className="space-y-2 text-center">
-        <h1 className="text-4xl font-bold tracking-tight sm:text-5xl bg-gradient-to-r from-teal-500 to-emerald-500 bg-clip-text text-transparent">
+      <div className="space-y-2 text-center font-inter">
+        <h1 className="text-4xl font-bold tracking-tight sm:text-5xl bg-gradient-to-r from-teal-500 to-emerald-500 bg-clip-text text-transparent font-inter">
           ScriptX
         </h1>
-        <p className="text-base text-muted-foreground max-w-md mx-auto leading-relaxed">
+        <p className="text-base text-muted-foreground max-w-lg mx-auto leading-relaxed">
           Transform viral YouTube content into your personal script style
         </p>
       </div>

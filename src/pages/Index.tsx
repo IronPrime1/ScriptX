@@ -135,6 +135,7 @@ const Index = () => {
                 isLoading={isLoading}
                 disabled={!youtubeUrl.trim()}
                 className="w-full"
+                buttonName={userScript || userUrl ? "Generate My Version" : "Rewrite Video Script"}
               />
             </CardContent>
           </Card>
@@ -175,7 +176,7 @@ const Index = () => {
                 </div>
                 <h3 className="font-semibold mb-2">Add Your Style</h3>
                 <p className="text-sm text-muted-foreground">
-                  Optionally paste your previous script or previous video URL and select a tone
+                  Optionally paste your previous script or previous video URL and select a style
                 </p>
               </CardContent>
             </Card>
@@ -187,7 +188,7 @@ const Index = () => {
                 </div>
                 <h3 className="font-semibold mb-2">Get Your Script</h3>
                 <p className="text-sm text-muted-foreground">
-                  Receive a personalized script in your unique style and tone
+                  Get a personalized script in your unique style or a rewritten script
                 </p>
               </CardContent>
             </Card>
