@@ -12,19 +12,22 @@ export default function ContactForm() {
   const { toast } = useToast()
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [email, setEmail] = useState("")
+  const [name, setName] = useState("")
+  const [message, setMessage] = useState("")
 
   const handleSubmit = async (e: React.FormEvent) => {
       e.preventDefault()
       setIsSubmitting(true)
   
-      // Show success toast here
       toast({
         title: "Form submitted",
         description: "Thank you for contacting us!",
       })
   
       // Reset form
-      setEmail("")
+      setEmail(" ")
+      setName(" ")
+      setMessage(" ")
       setIsSubmitting(false)
   }
 
