@@ -25,6 +25,7 @@ export default function Navbar() {
           <span className="text-xl font-semibold font-inter">ScriptX</span>
         </div>
 
+        
         {/* Desktop Navigation */}
         <div className="hidden md:flex md:items-center md:space-x-6">
           <a

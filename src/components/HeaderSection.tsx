@@ -17,7 +17,7 @@ export default function HeaderSection() {
           ScriptX
         </h1>
         <p className="text-base text-muted-foreground max-w-lg mx-auto leading-relaxed">
-          Transform viral YouTube content into your personal script style
+          Copy viral YouTube content into your personal script style
         </p>
         <p className="text-sm text-muted-foreground max-w-lg mx-auto leading-relaxed">
           [currently supports videos under 20 minutes]
