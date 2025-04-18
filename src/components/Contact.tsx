@@ -11,9 +11,9 @@ import { useToast } from "@/hooks/use-toast"
 export default function ContactForm() {
   const { toast } = useToast()
   const [isSubmitting, setIsSubmitting] = useState(false)
-  const [email, setEmail] = useState("")
-  const [name, setName] = useState("")
-  const [message, setMessage] = useState("")
+  const [email, setEmail] = useState<string>("")
+  const [name, setName] = useState<string>("")
+  const [message, setMessage] = useState<string>("")
 
   const handleSubmit = async (e: React.FormEvent) => {
       e.preventDefault()

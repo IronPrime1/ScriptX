@@ -16,6 +16,7 @@ export default function FeedbackForm() {
   const [rating, setRating] = useState<number>(0)
   const [comment, setComment] = useState<string>("")
   const [isSubmitting, setIsSubmitting] = useState<boolean>(false)
+  const [email, setEmail] = useState<string>("")
   const { toast } = useToast()
   const isMobile = useIsMobile()
 
@@ -32,6 +33,7 @@ export default function FeedbackForm() {
     // Reset form
     setRating(0)
     setComment("")
+    setEmail("")
     setIsSubmitting(false)
   }
 
