@@ -15,6 +15,7 @@ import UserUrlInput from '@/components/UserUrlInput';
 import { useAnalytics } from '@/hooks/useAnalytics';
 import FeedbackForm from '@/components/Feedback';
 import Navbar from '@/components/Navbar';
+import ContactForm from '@/components/Contact';
 
 const Index = () => {
 
@@ -195,9 +196,11 @@ const Index = () => {
           </div>
         </div>
         
-        <div className="pt-10" id="feedback">
+        <div className="pt-6 flex flex-col sm:flex-row gap-6" id="feedback">
         <FeedbackForm />
+        <ContactForm />
         </div>
+        
       </div>
       <Toaster />
       <footer className="mt-4 text-center text-sm text-muted-foreground border-t py-4 border-gray-300">

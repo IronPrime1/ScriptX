@@ -20,7 +20,7 @@ export default function HeaderSection() {
           Transform viral YouTube content into your personal script style
         </p>
         <p className="text-sm text-muted-foreground max-w-lg mx-auto leading-relaxed">
-          [currently supports videos under 20 minutes in length]
+          [currently supports videos under 20 minutes]
         </p>
       </div>
     </header>

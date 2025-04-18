@@ -9,6 +9,8 @@ import { Textarea } from "@/components/ui/textarea"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { useToast } from "@/hooks/use-toast"
 import { useIsMobile } from "@/hooks/use-mobile"
+import { Label } from "@/components/ui/label"
+import { Input } from "@/components/ui/input"
 
 export default function FeedbackForm() {
   const [rating, setRating] = useState<number>(0)
@@ -34,7 +36,7 @@ export default function FeedbackForm() {
   }
 
   return (
-    <Card className="w-full max-w-md mx-auto shadow-md font-inter font-medium">
+    <Card className="w-full max-w-lg mx-auto shadow-md font-inter font-medium">
       <form
       action="https://formspree.io/f/xkgjarej"
       method="POST"
@@ -44,8 +46,12 @@ export default function FeedbackForm() {
           <CardTitle className="text-xl md:text-2xl">Share your feedback</CardTitle>
           <CardDescription>We'd love to hear what you think about our service</CardDescription>
         </CardHeader>
-        <CardContent className="space-y-4">
-          <div className="space-y-2">
+        <CardContent className="space-y-3">
+        <div className="space-y-2">
+            <Label htmlFor="email">Email</Label>
+            <Input id="email" type="email" name="email" placeholder="your.email@example.com" required />
+          </div>
+          <div className="space-y-2 pt-1">
             <p className="text-sm font-medium">How would you rate your experience?</p>
             <div className="flex items-center justify-center md:justify-start gap-2">
               {[1, 2, 3, 4, 5].map((star) => (
@@ -74,16 +80,13 @@ export default function FeedbackForm() {
               placeholder="Tell us what you think..."
               value={comment}
               onChange={(e) => setComment(e.target.value)}
-              rows={isMobile ? 3 : 4}
               className="resize-none"
             />
           </div>
-        </CardContent>
-        <CardFooter>
-          <Button type="submit" className="w-full md:w-auto" disabled={rating === 0 || isSubmitting}>
+          <Button type="submit" className="w-full" disabled={rating === 0 || isSubmitting}>
             {isSubmitting ? "Submitting..." : "Submit Feedback"}
           </Button>
-        </CardFooter>
+        </CardContent>
       </form>
     </Card>
   )
