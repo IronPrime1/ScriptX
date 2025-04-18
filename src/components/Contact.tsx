@@ -33,7 +33,7 @@ export default function ContactForm() {
 
   return (
     <Card className="w-full max-w-lg mx-auto shadow-md font-inter font-medium">
-      <form onSubmit={handleSubmit} action="https://formspree.io/f/xqapvdae" method="POST">
+      <form onSubmit={handleSubmit} action="https://formspree.io/f/xanegdaw" method="POST">
       <CardHeader>
         <CardTitle className="text-xl md:text-2xl">Contact Us</CardTitle>
         <CardDescription>Fill out the form and we'll get back to you soon.</CardDescription>
