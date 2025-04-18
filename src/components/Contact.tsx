@@ -25,9 +25,9 @@ export default function ContactForm() {
       })
   
       // Reset form
-      setEmail(" ")
-      setName(" ")
-      setMessage(" ")
+      setEmail("")
+      setName("")
+      setMessage("")
       setIsSubmitting(false)
   }
 
@@ -41,7 +41,7 @@ export default function ContactForm() {
       <CardContent className="space-y-3">
           <div className="space-y-2">
             <Label htmlFor="name">Name</Label>
-            <Input id="name" name="name" placeholder="Your name" required />
+            <Input id="name" name="name" placeholder="Your name" required onChange={(e) => setName(e.target.value)}/>
           </div>
           <div className="space-y-2">
             <Label htmlFor="email">Email</Label>
@@ -49,7 +49,7 @@ export default function ContactForm() {
           </div>
           <div className="space-y-2">
             <Label htmlFor="message">Message</Label>
-            <Textarea id="message" name="message" placeholder="Your message" className="resize-none" required />
+            <Textarea id="message" name="message" placeholder="Your message" className="resize-none" required onChange={(e) => setMessage(e.target.value)}/>
           </div>
 
           <Button type="submit" className="w-full" disabled={email === "" || isSubmitting}>
