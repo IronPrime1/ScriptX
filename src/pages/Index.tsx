@@ -17,6 +17,7 @@ import FeedbackForm from '@/components/Feedback';
 import Navbar from '@/components/Navbar';
 import ContactForm from '@/components/Contact';
 import DisplayAd from '@/components/Ads/DisplayAd';
+import TestAdBanner from '@/components/Ads/Test';
 
 const Index = () => {
 
@@ -153,6 +154,10 @@ const Index = () => {
               />
             </div>
           )}
+        </div>
+
+        <div>
+          <TestAdBanner />
         </div>
 
         {/* How It Works Section */}
