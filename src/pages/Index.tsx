@@ -155,7 +155,7 @@ const Index = () => {
           )}
         </div>
 
-        <div>
+        <div className="p-2">
         <DisplayAd />
         </div>
 
