@@ -155,10 +155,6 @@ const Index = () => {
           )}
         </div>
 
-        <div className="p-2">
-        <DisplayAd />
-        </div>
-
         {/* How It Works Section */}
         <div className="mt-10 sm:mt-8 font-inter" id="how-it-works">
           <h2 className="text-2xl font-semibold text-center mb-6">How It Works</h2>
