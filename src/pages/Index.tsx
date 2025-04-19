@@ -16,6 +16,7 @@ import { useAnalytics } from '@/hooks/useAnalytics';
 import FeedbackForm from '@/components/Feedback';
 import Navbar from '@/components/Navbar';
 import ContactForm from '@/components/Contact';
+import DisplayAd from '@/components/Ads/DisplayAd';
 
 const Index = () => {
 
@@ -152,6 +153,10 @@ const Index = () => {
               />
             </div>
           )}
+        </div>
+
+        <div>
+        <DisplayAd />
         </div>
 
         {/* How It Works Section */}
