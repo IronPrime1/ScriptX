@@ -1,7 +1,6 @@
 
 // YouTube video ID extraction regex
-const VIDEO_ID_REGEX = /(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/\s]{11})/;
-
+const VIDEO_ID_REGEX = (/(?:youtube\.com\/(?:shorts\/|(?:[^\/\n\s]+\/\S+\/)?(?:v|embed|watch)(?:\?v=|\/|=))|youtu\.be\/)([a-zA-Z0-9_-]{11})/);
 /**
  * Extract YouTube video ID from URL
  * @param url The YouTube URL
