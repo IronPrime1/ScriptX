@@ -1,3 +1,4 @@
+
 import { Button } from '@/components/ui/button';
 import { Loader2 } from 'lucide-react';
 
@@ -6,14 +7,15 @@ interface GenerateButtonProps {
   isLoading: boolean;
   disabled: boolean;
   buttonName: string;
+  className?: string; // Add the className prop as optional
 }
 
-const GenerateButton = ({ onClick, isLoading, disabled, buttonName }: GenerateButtonProps) => {
+const GenerateButton = ({ onClick, isLoading, disabled, buttonName, className }: GenerateButtonProps) => {
   return (
     <Button
       onClick={onClick}
       disabled={isLoading || disabled}
-      className="w-full font-semibold bg-gradient-to-r from-primary to-secondary hover:opacity-90 transition-all"
+      className={`w-full font-semibold bg-gradient-to-r from-primary to-secondary hover:opacity-90 transition-all ${className || ''}`}
       size="lg"
     >
       {isLoading ? (
