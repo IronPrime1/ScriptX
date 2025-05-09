@@ -16,7 +16,7 @@ export const generateScript = async (
   try {
     console.log('Sending request to generate script for:', videoUrl);
     
-    const response = await fetch('https://yozqkhxpxodolcrbtbtg.supabase.co/functions/v1/generate-script', {
+    const response = await fetch('https://lsfawnrryhsezfjayesz.supabase.co/functions/v1/generate-script', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
